@@ -1,0 +1,11 @@
+Metric,Value
+ROC-AUC,0.7317
+Average Precision,0.3783
+Threshold,0.0937
+Precision (anomaly),0.3344
+Recall (anomaly),0.523
+F1 (anomaly),0.408
+Engines alerted,94
+Engines missed,6
+Median lead time,30 cycles
+Lead time ≥ 30 cyc,50.0%
