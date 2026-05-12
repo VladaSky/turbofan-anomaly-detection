@@ -1,0 +1,13 @@
+# Render Infrastructure-as-Code
+# Docs: https://render.com/docs/infrastructure-as-code
+services:
+  - type: web
+    name: turbofan-anomaly-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements-deploy.txt
+    startCommand: uvicorn src.api_lite:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
