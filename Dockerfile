@@ -6,8 +6,12 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements-deploy.txt .
-RUN pip install --no-cache-dir -r requirements-deploy.txt
+RUN pip install --no-cache-dir \
+    fastapi==0.136.1 \
+    uvicorn[standard]==0.34.3 \
+    xgboost==3.2.0 \
+    scikit-learn==1.6.1 \
+    numpy==1.26.4
 
 COPY src/api_lite.py              src/
 COPY models/xgb_rul.json          models/
